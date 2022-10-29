@@ -7,3 +7,8 @@
     font-family: IRANYekanExtraBoldFaNum;
     src: url('../fonts/yekan/IRANYekanExtraBoldFaNum.ttf');
 }
+
+@font-face {
+    font-family: IRANYekanLight;
+    src: url('../fonts/yekan/IRANYekanLight.ttf');
+}
