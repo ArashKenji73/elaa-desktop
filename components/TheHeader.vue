@@ -28,7 +28,7 @@
             </div>
             <!-- LOGO-SEARCHFORM -->
             <div class="logo-searchForm">
-                <img src="" />
+                <img class="logo" src="~/assets/images/logo.svg" />
             </div>
         </div>
     </header>
@@ -62,5 +62,9 @@ header {
 
 .icon-simple{
     @apply h-9 w-9 flex items-center text-3xl text-elaa-violet font-bold cursor-pointer;
+}
+
+.logo{
+    width: 50px;
 }
 </style>
