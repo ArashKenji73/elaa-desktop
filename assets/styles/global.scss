@@ -1,0 +1,14 @@
+@import 'reset.scss';
+//icon
+@import '../fonts/style.css';
+//yekan
+@import '../styles/yekan-family.css';
+
+.icon-circle{
+    @apply bg-elaa-light-violet text-elaa-violet h-9 w-9  flex items-center justify-center text-lg font-bold transition-all duration-300 rounded-full cursor-pointer;
+    
+    &:hover{
+        @apply bg-elaa-violet text-elaa-light-violet;
+    }
+}
+
