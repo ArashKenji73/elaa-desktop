@@ -2,6 +2,8 @@
   1. Use a more-intuitive box-sizing model.
 */
 *, *::before, *::after {
+    direction: ltr;
+    text-align: right;
     box-sizing: border-box;
   }
   /*
