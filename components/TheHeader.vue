@@ -20,9 +20,7 @@
                 </div>
                 <!-- PHONE -->
                 <div class="phone">
-                    <div class="icon-simple">
-                        <span class="icon-call"></span>
-                    </div>
+                    
                     <div class="phone-col">
                         <span>
                             021-44476028
@@ -30,6 +28,9 @@
                         <span>
                             021-44476028
                         </span>
+                    </div>
+                    <div class="icon-simple">
+                        <span class="icon-call"></span>
                     </div>
                 </div>
             </div>

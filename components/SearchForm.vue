@@ -1,7 +1,7 @@
 <template>
     <div class="search-box">
         <span class="icon-search-normal search-icon text-xs"></span>
-        <input type="text" class="search-input iranSansNumb" placeholder=".... جستجوی محصولات" />
+        <input type="text" class="search-input iranSansNumb" placeholder=" جستجوی محصولات ...."  />
     </div>
 </template>
 
