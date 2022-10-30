@@ -135,13 +135,14 @@
     }
 
     .toys{
-        @apply relative flex flex-col items-center;
+        @apply relative flex flex-col items-center justify-center;
         .toys-img {
             @apply z-10;
         }
         .pattern {
             position: absolute;
             width: auto;
+            top: 25px;
         }
         .main-item-text {
             @apply text-elaa-khaki-dark;

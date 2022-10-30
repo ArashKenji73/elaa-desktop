@@ -1,6 +1,7 @@
 <template>
   <div>
     <the-banner />
+    <Upv />
   </div>
 </template>
 
