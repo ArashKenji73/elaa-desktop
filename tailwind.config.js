@@ -22,7 +22,8 @@ module.exports = {
         'elaa-light-violet': '#F3F3FF',
         'elaa-mint': '#BAE0E3',
         'elaa-mint-dark': '#608E92',
-        'elaa-khaki': '#DED1CA'
+        'elaa-khaki': '#DED1CA',
+        'elaa-khaki-dark': '#9E887C'
       }
     },
   },
