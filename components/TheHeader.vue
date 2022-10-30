@@ -1,8 +1,23 @@
 <template>
     <header>
         <div class="container header">
+            <!-- LOGO-SEARCHFORM -->
+            <div class="logo-searchForm">
+                <!-- LOGO -->
+                <img class="logo" src="~/assets/images/logo.svg" />
+                <!-- SEARCHFORM -->
+                <search-form/>
+            </div>
             <!-- USER-CART-PHONE -->
             <div class="user-cart-phone">
+                <!-- ICON-CIRCLE -->
+                <div class="icon-circle">
+                    <span class="icon-user"></span>
+                </div>
+                <!-- ICON-CIRCLE -->
+                <div class="icon-circle">
+                    <span class="icon-shopping-cart"></span>
+                </div>
                 <!-- PHONE -->
                 <div class="phone">
                     <div class="icon-simple">
@@ -17,21 +32,6 @@
                         </span>
                     </div>
                 </div>
-                <!-- ICON-CIRCLE -->
-                <div class="icon-circle">
-                    <span class="icon-user"></span>
-                </div>
-                <!-- ICON-CIRCLE -->
-                <div class="icon-circle">
-                    <span class="icon-shopping-cart"></span>
-                </div>
-            </div>
-            <!-- LOGO-SEARCHFORM -->
-            <div class="logo-searchForm">
-                <!-- SEARCHFORM -->
-                <search-form/>
-                <!-- LOGO -->
-                <img class="logo" src="~/assets/images/logo.svg" />
             </div>
         </div>
     </header>
