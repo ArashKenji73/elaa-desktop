@@ -25,6 +25,9 @@
 nav{
     @apply  flex justify-between items-center list-none h-20 text-gray-400;
     font-family: IRANYekanExtraBoldFaNum;
+    li{
+        @apply cursor-pointer;
+    }
     li.active{
         @apply text-elaa-violet;
     }
