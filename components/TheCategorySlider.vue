@@ -6,24 +6,9 @@
 
             <div class="scrolling-wrapper">
                 <div id="scroll">
-                    <div class="card"></div>
-                    <div class="card"></div>
-                    <div class="card"></div>
-                    <div class="card"></div>
-                    <div class="card"></div>
-                    <div class="card"></div>
-                    <div class="card"></div>
-                    <div class="card"></div>
-                    <div class="card"></div>
-                    <div class="card"></div>
-                    <div class="card"></div>
-                    <div class="card"></div>
-                    <div class="card"></div>
-                    <div class="card"></div>
-                    <div class="card"></div>
-                    <div class="card"></div>
-                    <div class="card"></div>
-                    <div class="card"></div>
+                    <template v-for="(card,i) in 10" :key="i">
+                        <category-card/>
+                    </template>
                 </div>
             </div>
 
@@ -92,12 +77,6 @@ onMounted(() => {
         @apply p-4 bg-white rounded-lg border-2 border-elaa-light-violet;
         #scroll{
             @apply flex gap-4 overflow-x-hidden overflow-y-hidden transition-all duration-300;
-        }
-        .card {
-            min-width: 136px;
-            min-height: 180px;
-            background: #ddd;
-            @apply rounded-md;
         }
     }
 }
