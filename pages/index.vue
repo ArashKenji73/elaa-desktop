@@ -2,6 +2,7 @@
   <div>
     <the-banner />
     <Upv />
+    <the-category-slider />
   </div>
 </template>
 

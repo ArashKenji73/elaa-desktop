@@ -1,5 +1,5 @@
 <template>
-    <ul class="upv mt-10">
+    <ul class="upv mt-16 mb-16">
         <div class="upv-wrap">
             <li>
                 <span class="icon-now-in-stock icon"></span>
