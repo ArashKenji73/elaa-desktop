@@ -12,3 +12,10 @@
     font-family: IRANYekanLight;
     src: url('../fonts/yekan/IRANYekanLight.ttf');
 }
+
+
+@font-face {
+    font-family: IRANYekanBold;
+    src: url('../fonts/yekan/IRANYekanBoldFaNum.ttf');
+}
+

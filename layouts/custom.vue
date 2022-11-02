@@ -1,6 +1,8 @@
 <template>
-    <TheHeader />
-    <TheNavbar />
-    <slot />
-    <TheFooter />
+    <div>
+        <TheHeader />
+        <TheNavbar />
+        <slot />
+        <TheFooter />
+    </div>
 </template>
