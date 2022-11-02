@@ -1,24 +1,28 @@
 <template>
     <div class="category-card">
-        <img src="" alt="">
-        <h1 class="card-title">بالش شیردهی کاور شیردهی</h1>
+        <img :src="`${baseURL}/${props.category.picture}`" alt="">
+        <h1 class="card-title">{{props.category.name}}</h1>
     </div>
 </template>
 
 <script setup>
-
+const props = defineProps(['category'])
+const runtimeConfig = useRuntimeConfig()
+const baseURL = runtimeConfig.public.apiBase;
 </script>
 
 <style lang="scss">
 .category-card {
     min-width: 136px;
     min-height: 180px;
-    @apply flex flex-col items-center bg-gray-100 p-5 rounded-md cursor-pointer;
+    @apply flex flex-col items-center bg-gray-50 py-5 px-2 rounded-md cursor-pointer;
+
     img {
         @apply w-16 h-16 bg-red-400 mb-4 rounded-full;
     }
-    .card-title{
-        @apply text-center text-sm;
+
+    .card-title {
+        @apply text-center text-sm leading-6;
         font-family: IRANYekanMedium;
     }
 }

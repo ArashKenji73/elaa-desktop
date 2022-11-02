@@ -3,21 +3,27 @@
         <div class="category-pattern"></div>
         <div class="slider container">
             <h1 class="title">دسته بندی ها</h1>
-
+            <div v-if="pending">
+                Loading ...
+            </div>
             <div class="scrolling-wrapper">
                 <div id="scroll">
-                    <template v-for="(card,i) in 10" :key="i">
-                        <category-card/>
+                    <template v-for="(category,i) in data.categories">
+                        <category-card :category="category"/>
                     </template>
                 </div>
             </div>
-
         </div>
     </div>
 </template>
 
 <script setup>
 import { onMounted } from 'vue'
+import {getCategories} from '@/API.js'
+const runtimeConfig = useRuntimeConfig()
+const { data, pending, error } = await useLazyFetch(getCategories,{
+    baseURL: runtimeConfig.public.apiBase,
+})
 
 onMounted(() => {
     // const scrollContainer = document.getElementById("scroll");

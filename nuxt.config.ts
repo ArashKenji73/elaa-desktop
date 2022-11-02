@@ -14,5 +14,10 @@ export default defineNuxtConfig({
                 usePolling: true
             }
         },
+    },
+    runtimeConfig: {
+        public: {
+          apiBase: process.env.API_BASE_URL || 'https://elaart.ir/'
+        }
     }
 })
