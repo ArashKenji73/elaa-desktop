@@ -3,6 +3,7 @@
     <the-banner />
     <Upv />
     <the-category-slider />
+    <top-sales-slider />
   </div>
 </template>
 
