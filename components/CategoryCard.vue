@@ -1,7 +1,7 @@
 <template>
     <div class="category-card">
         <img :src="`${baseURL}/${props.category.picture}`" alt="">
-        <h1 class="card-title">{{props.category.name}}</h1>
+        <h1 class="category-title">{{props.category.name}}</h1>
     </div>
 </template>
 
@@ -21,7 +21,7 @@ const baseURL = runtimeConfig.public.apiBase;
         @apply w-16 h-16 bg-red-400 mb-4 rounded-full;
     }
 
-    .card-title {
+    .category-title {
         @apply text-center text-sm leading-6;
         font-family: IRANYekanMedium;
     }
