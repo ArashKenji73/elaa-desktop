@@ -67,12 +67,12 @@ onMounted(() => {
 
 <style lang="scss">
 .category-pattern {
-    @apply w-full h-56;
+    @apply w-full h-56 -mb-36;
     background-image: url('~/assets/images/saw-pattern.svg');
 }
 
 .slider {
-    @apply flex flex-col gap-4 -mt-36;
+    @apply flex flex-col gap-4 mb-20;
 
     .title {
         font-family: IRANYekanExtraBoldFaNum;
