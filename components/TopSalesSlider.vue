@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="slider container">
-            <h1 class="title">دسته بندی ها</h1>
+            <h1 class="title">پرفروش ترین ها</h1>
             <div v-if="pending">
                 Loading ...
             </div>
