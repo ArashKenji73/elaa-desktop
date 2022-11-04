@@ -2,16 +2,14 @@
     <div class="prod-card">
         <img class="prod-image" :src="`${baseURL}/${props.prod.picture}`" alt="">
         <div class="prod-info">
-
             <h1 class="prod-title">{{ props.prod.finalName }}</h1>
-
             <div class="flex flex-row-reverse items-center justify-between">
                 <div class="flex flex-col items-end">
-                    <div class="prod-old-price">{{finalPriceSeparators}}</div>
+                    <div v-if="props.prod.product.isOnSale" class="prod-old-price">{{finalOldPriceSeparators}}</div>
                     <div class="prod-price">{{finalPriceSeparators}}</div>
                 </div>
                 
-                <div class="off-percent">20%</div>
+                <div v-if="props.prod.product.isOnSale" class="off-percent">20%</div>
             </div>
         </div>
 
@@ -26,6 +24,7 @@ const props = defineProps(['prod'])
 const runtimeConfig = useRuntimeConfig()
 const baseURL = runtimeConfig.public.apiBase;
 const finalPriceSeparators = computed(() => props.prod.finalPrice.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") + ' تومان ')
+const finalOldPriceSeparators = computed(() => props.prod.finalOldPrice.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") + ' تومان ')
 </script>
 
 <style lang="scss">
@@ -46,8 +45,8 @@ const finalPriceSeparators = computed(() => props.prod.finalPrice.toString().rep
             font-family: IRANYekanMedium;
         }
         .prod-price{
-            font-family: IRANYekanBold;
-            @apply text-lg;
+            font-family: IRANYekanExtraBoldFaNum;
+            @apply text-lg text-gray-600;
         }
         .prod-old-price{
             @apply line-through text-gray-500;
