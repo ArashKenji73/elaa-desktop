@@ -86,7 +86,7 @@ onMounted(() => {
 }
 
 .slider {
-    @apply flex flex-col gap-4 mb-20;
+    @apply flex flex-col gap-4 mb-32;
 
     .title {
         font-family: IRANYekanExtraBoldFaNum;

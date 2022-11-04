@@ -2,12 +2,22 @@
     <div>
         <div class="slider container">
             <h1 class="title">پرفروش ترین ها</h1>
-            <div v-if="pending">
-                Loading ...
+
+            <template v-if="pending">
+                <div class="scrolling-wrapper">
+                    <div class="loading">
+                        <template v-for="(category,i) in 12">
+                            <category-card-loading />
+                        </template>
+                    </div>
+                </div>
+            </template>
+            <div v-if="!pending && error">
+                error !
+                <button @click.prevent="load">Load post</button>
             </div>
-            <div class="scrolling-wrapper">
-                <div id="scroll-prod">
-                    
+            <div class="scrolling-wrapper" v-if="!pending && !error">
+                <div id="scroll">
                     <template v-for="(prod,i) in data.picture3ds">
                         <prod-card :prod="prod"/>
                     </template>
@@ -72,7 +82,7 @@ onMounted(() => {
 }
 
 .slider {
-    @apply flex flex-col gap-4 mb-20;
+    @apply flex flex-col gap-4 mb-32;
 
     .title {
         font-family: IRANYekanExtraBoldFaNum;

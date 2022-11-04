@@ -42,7 +42,7 @@ const limitChar = 34
 
     .category-title {
         @apply text-center text-sm leading-6;
-        font-family: IRANYekanMedium;
+        font-family: IRANYekanBold;
     }
 }
 </style>

@@ -30,7 +30,7 @@ const finalOldPriceSeparators = computed(() => props.prod.finalOldPrice.toString
 <style lang="scss">
 .prod-card {
     min-width: 288px;
-    min-height: 440px;
+    min-height: 400px;
     @apply flex flex-col border border-gray-200 rounded-md cursor-pointer overflow-hidden;
 
     .prod-image {
