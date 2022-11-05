@@ -6,7 +6,7 @@
                 <div class="scrolling-wrapper">
                     <div class="loading">
                         <template v-for="(category,i) in 12">
-                            <category-card-loading />
+                            <prod-card-loading />
                         </template>
                     </div>
                 </div>
