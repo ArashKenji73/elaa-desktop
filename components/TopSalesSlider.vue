@@ -17,7 +17,7 @@
                 <button @click.prevent="load">Load post</button>
             </div>
             <div class="scrolling-wrapper" v-if="!pending && !error">
-                <div id="scroll">
+                <div id="scroll-prod">
                     <template v-for="(prod,i) in data.picture3ds">
                         <prod-card :prod="prod"/>
                     </template>
