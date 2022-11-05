@@ -2,14 +2,14 @@
     <div class="prod-card">
         <img class="prod-image" :src="`${baseURL}/${props.prod.picture}`" alt="">
         <div class="prod-info">
-            <h1 class="prod-title">{{ props.prod.finalName }}</h1>
+            <h1 class="prod-title">{{ props.prod.finalName }} {{props.prod.model}}</h1>
             <div class="flex flex-row-reverse items-center justify-between">
                 <div class="flex flex-col items-end">
                     <div v-if="props.prod.product.isOnSale" class="prod-old-price">{{finalOldPriceSeparators}}</div>
                     <div class="prod-price">{{finalPriceSeparators}}</div>
                 </div>
                 
-                <div v-if="props.prod.product.isOnSale" class="off-percent">20%</div>
+                <div v-if="props.prod.product.isOnSale" class="off-percent">{{props.prod.finalDiscount}}%</div>
             </div>
         </div>
 
