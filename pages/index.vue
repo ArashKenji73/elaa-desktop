@@ -10,8 +10,8 @@
       <h2>تا %۴۰ تخفیف</h2>
     </div>
 
-    <top-sales-slider />
-    <top-sales-slider />
+    <sales-slider />
+    <prods-by-colors />
   </div>
 </template>
 
@@ -27,7 +27,7 @@ definePageMeta({
 <style lang="scss" scoped>
 .sales-section{
   @apply flex flex-col gap-2 items-center justify-center w-full h-44 container mb-32 rounded-lg text-3xl text-white;
-  background: url("@/assets/images/hobbby.svg");
+  background: url("@/assets/images/Banner-6.jpg");
   background-size: cover;
   background-position: center; 
   font-family: IRANYekanBold;
