@@ -2,29 +2,22 @@
     <div class="sales-by-color-bg">
         <div class="slider container">
             <h1 class="title">سیسمونی بر اساس رنگ</h1>
-            <template v-if="pending">
-                <div class="scrolling-wrapper">
-                    <div class="loading">
-                        <template v-for="(category, i) in 12">
-                            <prod-card-loading />
-                        </template>
-                    </div>
-                </div>
-            </template>
-            <div v-if="!pending && error">
-                error !
-                <button @click.prevent="load">Load post</button>
+            <div class="flex gap-2 mb-4">
+                <!-- <pre>{{ data.availableColors }}</pre> -->
+                <template v-for="(color, i) in data.availableColors">
+                    <div class="color-icon" :style="{ background: `#${color.hex_code}` }"
+                        @click="changeColor(color.id)"></div>
+                </template>
             </div>
-            <div class="scrolling-wrapper" v-if="!pending && !error">
-                <div class="flex gap-2">
-                    <!-- <pre>{{ data.availableColors }}</pre> -->
-                    <template v-for="(color, i) in data.availableColors">
-                        <div class="color-icon" :style="{ background: `#${color.hex_code}` }"></div>
-                    </template>
-                </div>
+            <div class="scrolling-wrapper">
                 <div id="scroll-prod-color">
-                    <template v-for="(prod, i) in data.picture3ds">
-                        <prod-card :prod="prod" />
+                    <template v-if="loading">
+                        <prod-card-loading v-for="(prod,i) in 12" />
+                    </template>
+                    <template v-else>
+                        <template v-for="(prod,i) in prods.picture3ds">
+                            <prod-card :prod="prod"/>
+                        </template>
                     </template>
                 </div>
             </div>
@@ -33,26 +26,29 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
-import { getColors } from '@/API.js'
+import { onMounted, ref } from 'vue'
+import { getColors, getProdsByColorID } from '@/API.js'
 const runtimeConfig = useRuntimeConfig()
 const { data, pending, error } = await useLazyFetch(getColors, {
     baseURL: runtimeConfig.public.apiBase,
 })
 
-onMounted(() => {
-    // const scrollContainer = document.getElementById("scroll");
+let defaultColorID = ref(null)
+let loading = ref(false)
+defaultColorID = data.value.availableColors[0].id
+//console.log(defaultColorID);
 
-    // scrollContainer.addEventListener("wheel", (evt) => {
-    //     evt.preventDefault();
-    //     scrollContainer.scrollLeft += evt.deltaY;
-    // });
+const { data: prods } = await useLazyFetch(getProdsByColorID(defaultColorID), {
+    baseURL: runtimeConfig.public.apiBase,
+})
 
-
+function scroll() {
     const slider = document.getElementById('scroll-prod-color');
+    slider.scrollLeft = slider.scrollWidth;
     let isDown = false;
     let startX;
     let scrollLeft;
+
 
     slider.addEventListener('mousedown', (e) => {
         isDown = true;
@@ -77,6 +73,23 @@ onMounted(() => {
         const walk = (x - startX) * 1; //scroll-fast
         slider.scrollLeft = scrollLeft - walk;
     });
+}
+
+async function changeColor(colorID) {
+    resetScroll();
+    this.loading = true
+    const data = await $fetch(runtimeConfig.public.apiBase + getProdsByColorID(colorID), { method: 'GET', })
+    this.loading = false;
+    this.prods = data;
+}
+
+function resetScroll() {
+    const slider = document.getElementById('scroll-prod-color');
+    slider.scrollLeft = slider.scrollWidth;
+}
+
+onMounted(() => {
+    scroll()
 })
 </script>
 
@@ -98,9 +111,9 @@ onMounted(() => {
 
     .scrolling-wrapper {
         @apply p-0 bg-white rounded-lg border-0 border-elaa-light-violet;
-
         #scroll-prod-color {
-            @apply flex gap-4 overflow-x-hidden overflow-y-hidden transition-all duration-300;
+            direction: rtl;
+            @apply flex flex-row gap-4 overflow-x-hidden overflow-y-hidden transition-all duration-300;
         }
     }
 }
