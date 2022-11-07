@@ -6,17 +6,17 @@
                 <!-- <pre>{{ data.availableColors }}</pre> -->
                 <template v-for="(color, i) in data.availableColors">
                     <div class="color-icon" :style="{ background: `#${color.hex_code}` }"
-                        @click="changeColor(color.id)"></div>
+                        :class="{ selected: defaultColorID === color.id }" @click="changeColor(color.id)"></div>
                 </template>
             </div>
             <div class="scrolling-wrapper">
                 <div id="scroll-prod-color">
                     <template v-if="loading">
-                        <prod-card-loading v-for="(prod,i) in 12" />
+                        <prod-card-loading v-for="(prod, i) in 12" />
                     </template>
                     <template v-else>
-                        <template v-for="(prod,i) in prods.picture3ds">
-                            <prod-card :prod="prod"/>
+                        <template v-for="(prod, i) in prods.picture3ds">
+                            <prod-card :prod="prod" />
                         </template>
                     </template>
                 </div>
@@ -76,6 +76,7 @@ function scroll() {
 }
 
 async function changeColor(colorID) {
+    this.defaultColorID = colorID;
     resetScroll();
     this.loading = true
     const data = await $fetch(runtimeConfig.public.apiBase + getProdsByColorID(colorID), { method: 'GET', })
@@ -111,6 +112,7 @@ onMounted(() => {
 
     .scrolling-wrapper {
         @apply p-0 bg-white rounded-lg border-0 border-elaa-light-violet;
+
         #scroll-prod-color {
             direction: rtl;
             @apply flex flex-row gap-4 overflow-x-hidden overflow-y-hidden transition-all duration-300;
@@ -125,5 +127,19 @@ onMounted(() => {
     height: 32px;
     border: 2px solid rgb(243, 243, 243);
     border-radius: 100%;
+
+    &.selected::before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        content: "";
+        display: inline-block;
+        vertical-align: middle;
+        width: 0.75rem;
+        height: 0.75rem;
+        background: url("~/assets/icons/task.svg");
+        background-size: cover;
+    }
 }
 </style>
