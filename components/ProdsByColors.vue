@@ -2,7 +2,7 @@
     <div class="sales-by-color-bg">
         <div class="slider container">
             <h1 class="title">سیسمونی بر اساس رنگ</h1>
-            <div class="flex gap-2 mb-4">
+            <div class="flex flex-wrap gap-2 mb-4">
                 <!-- <pre>{{ data.availableColors }}</pre> -->
                 <template v-for="(color, i) in data.availableColors">
                     <div class="color-icon" :style="{ background: `#${color.hex_code}` }"
@@ -35,13 +35,30 @@ const { data, pending, error } = await useLazyFetch(getColors, {
 
 let defaultColorID = ref(null)
 let loading = ref(false)
-defaultColorID = data.value.availableColors[0].id
+defaultColorID.value = data.value.availableColors[0].id
 //console.log(defaultColorID);
 
-const { data: prods } = await useLazyFetch(getProdsByColorID(defaultColorID), {
+
+async function changeColor(colorID) {
+    defaultColorID.value = colorID;
+    resetScroll();
+    loading.value = true
+    const data = await $fetch(runtimeConfig.public.apiBase + getProdsByColorID(defaultColorID.value), { method: 'GET', })
+    loading.value = false;
+    console.log(prods.value, data);
+    prods.value = data;
+}
+
+const { data: prods } = await useLazyFetch(getProdsByColorID(defaultColorID.value), {
     baseURL: runtimeConfig.public.apiBase,
+    initialCache: false,
+    immediate: true
 })
 
+function resetScroll() {
+    const slider = document.getElementById('scroll-prod-color');
+    slider.scrollLeft = slider.scrollWidth;
+}
 function scroll() {
     const slider = document.getElementById('scroll-prod-color');
     slider.scrollLeft = slider.scrollWidth;
@@ -75,20 +92,6 @@ function scroll() {
     });
 }
 
-async function changeColor(colorID) {
-    this.defaultColorID = colorID;
-    resetScroll();
-    this.loading = true
-    const data = await $fetch(runtimeConfig.public.apiBase + getProdsByColorID(colorID), { method: 'GET', })
-    this.loading = false;
-    this.prods = data;
-}
-
-function resetScroll() {
-    const slider = document.getElementById('scroll-prod-color');
-    slider.scrollLeft = slider.scrollWidth;
-}
-
 onMounted(() => {
     scroll()
 })
@@ -96,14 +99,14 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .sales-by-color-bg {
-    @apply py-16;
+    @apply py-16 mb-32;
     background-image: url('~/assets/images/ProdByColor.svg');
     background-size: cover;
     background-position: center;
 }
 
 .slider {
-    @apply flex flex-col gap-4 bg-white mb-0 p-8 rounded-md;
+    @apply flex flex-col gap-4 bg-white mb-0 p-8  rounded-md;
 
     .title {
         font-family: IRANYekanExtraBoldFaNum;

@@ -7,8 +7,8 @@
                 <img class="baby" src="~/assets/images/baby.png" />
                 <!-- MAIN-ITEM-TEXT -->
                 <div class="main-item-text">
-                    <h1>پوشاک نوزاد</h1>
-                    <h3>پیراهن ، سرهمی ، پیشبند</h3>
+                    <h1 class="title">پوشاک نوزاد</h1>
+                    <h3 class="sub-title">پیراهن ، سرهمی ، پیشبند</h3>
                     <div class="cta-btn">خرید کنید</div>
                 </div>
             </div>
@@ -17,8 +17,8 @@
                 <img class="materials-img" src="~/assets/images/materilas.png" />
                 <!-- MAIN-ITEM-TEXT -->
                 <div class="main-item-text">
-                    <h1>پارچه</h1>
-                    <h3>تنوع بینظیر</h3>
+                    <h1 class="title">پارچه</h1>
+                    <h3 class="sub-title">تنوع بینظیر</h3>
                     <div class="cta-btn">خرید کنید</div>
                 </div>
             </div>
@@ -27,8 +27,8 @@
                 <img class="toys-img" src="~/assets/images/toy.png" />
                 <!-- MAIN-ITEM-TEXT -->
                 <div class="main-item-text">
-                    <h1>اسباب بازی</h1>
-                    <h3>بازی سرگرمی آموزشی</h3>
+                    <h1 class="title">اسباب بازی</h1>
+                    <h3 class="sub-title">بازی سرگرمی آموزشی</h3>
                     <div class="cta-btn">خرید کنید</div>
                 </div>
             </div>
@@ -40,7 +40,7 @@
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .banner-grid {
     @apply grid grid-cols-3 grid-rows-2 gap-2;
     height: 620px;
@@ -82,19 +82,20 @@
         }
 
         .baby {
-            margin-right: 25%;
+            //margin-right: 20%;
+            @apply xl:mr-[10%] 2xl:mr-[20%] ;
         }
 
         .main-item-text {
-            left: 14%;
+            left: 18%;
             @apply absolute flex flex-col text-elaa-mint-dark;
 
-            h1 {
+            .title {
                 font-family: IRANYekanExtraBoldFaNum;
                 @apply text-5xl mb-2;
             }
 
-            h3 {
+            .sub-title {
                 font-family: IRANYekanMedium;
                 @apply text-2xl mb-4 opacity-90;
             }
@@ -119,12 +120,12 @@
             left: 28%;
             @apply absolute flex flex-col text-white;
 
-            h1 {
+            .title {
                 font-family: IRANYekanExtraBoldFaNum;
                 @apply text-4xl mb-2;
             }
 
-            h3 {
+            .sub-title {
                 font-family: IRANYekanMedium;
                 @apply text-lg mb-4 opacity-90;
             }
@@ -146,12 +147,12 @@
         }
         .main-item-text {
             @apply text-elaa-khaki-dark;
-            h1 {
+            .title {
                 font-family: IRANYekanExtraBoldFaNum;
-                @apply text-2xl text-center;
+                @apply text-2xl mb-0 text-center;
             }
 
-            h3 {
+            .sub-title {
                 font-family: IRANYekanMedium;
                 @apply text-lg text-center mb-4 opacity-90;
             }
