@@ -41,7 +41,7 @@ const limitChar = 34
     }
 
     .category-title {
-        @apply text-center text-sm leading-6;
+        @apply text-center mb-0 pb-0 text-sm leading-6;
         font-family: IRANYekanBold;
     }
 }

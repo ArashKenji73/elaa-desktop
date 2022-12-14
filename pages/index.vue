@@ -26,7 +26,7 @@ definePageMeta({
 
 <style lang="scss" scoped>
 .sales-section{
-  @apply flex flex-col gap-2 items-center justify-center w-full h-52 container mb-32 rounded-lg text-3xl text-white;
+  @apply flex flex-col gap-2 items-center justify-center w-full h-56 container mb-32 rounded-lg text-3xl text-white;
   background: url("@/assets/images/Banner-6.jpg");
   background-size: cover;
   background-position: center; 

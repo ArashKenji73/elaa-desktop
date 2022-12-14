@@ -46,7 +46,7 @@
     height: 620px;
 
     .banner-item {
-        @apply rounded-md bg-gray-300;
+        @apply rounded-md bg-gray-300 overflow-hidden;
 
         &:nth-child(2) {
             @apply bg-elaa-violet relative;
