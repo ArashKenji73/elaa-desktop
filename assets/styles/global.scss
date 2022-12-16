@@ -16,3 +16,8 @@ input{
     }
 }
 
+
+.hr{
+    height: 1px;
+    @apply w-full bg-slate-200 mb-6;
+}
