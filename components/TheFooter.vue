@@ -1,8 +1,8 @@
 <template>
-    <div class="relative">
-        <img src="@/assets/images/cute-pony.png" class="absolute right-0 bottom-0"/>
-        <img src="@/assets/images/cute-pony-2.png" class="absolute left-0 bottom-0"/>
-        <div class="container flex justify-between">
+    <div class="relative p-10 border-gray-100 border-t-2">
+        <img src="@/assets/images/cute-pony.png" class="absolute right-0 bottom-0" />
+        <img src="@/assets/images/cute-pony-2.png" class="absolute left-0 bottom-0" />
+        <div class="container flex justify-between footer">
             <div class="about-us">
                 <h1>درباره ما</h1>
                 <h3>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
@@ -62,15 +62,18 @@
 </script>
 
 <style lang="scss">
-h1 {
-    font-family: IRANYekanExtraBoldFaNum;
-    @apply text-xl mb-4;
+.footer {
+    h1 {
+        font-family: IRANYekanExtraBoldFaNum;
+        @apply text-xl mb-4;
+    }
+
+    h3 {
+        font-family: IRANYekanMedium;
+        @apply text-sm text-gray-600 leading-6 text-justify;
+    }
 }
 
-h3 {
-    font-family: IRANYekanMedium;
-    @apply text-sm text-gray-600 leading-6 text-justify;
-}
 
 .about-us {
     width: 250px;
