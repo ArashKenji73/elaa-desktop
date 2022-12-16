@@ -13,7 +13,7 @@ module.exports = {
         md: '728px',
         lg: '984px',
         xl: '1140px',
-        '2xl': '1496px',
+        '2xl': '1300px',
       },
     },
     extend: {
@@ -23,7 +23,8 @@ module.exports = {
         'elaa-mint': '#BAE0E3',
         'elaa-mint-dark': '#608E92',
         'elaa-khaki': '#DED1CA',
-        'elaa-khaki-dark': '#9E887C'
+        'elaa-khaki-dark': '#9E887C',
+        'elaa-red': '#EB5757'
       }
     },
   },
