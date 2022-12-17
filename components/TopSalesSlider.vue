@@ -76,10 +76,7 @@ onMounted(() => {
 </script>
 
 <style lang="scss">
-.category-pattern {
-    @apply w-full h-56 -mb-36;
-    background-image: url('~/assets/images/saw-pattern.svg');
-}
+
 
 .slider {
     @apply flex flex-col gap-4 mb-32;
